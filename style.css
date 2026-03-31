@@ -1,0 +1,127 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+/* CENTER CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 350px;
+}
+
+/* INPUT */
+.card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.card input:focus {
+  outline: 2px solid #00c6ff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* BUTTON */
+.card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 15px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* RESULT TITLE */
+.title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* TABS */
+.tabs {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  margin: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.tabs button:hover,
+.tabs button.active {
+  background: rgba(0, 198, 255, 0.3);
+}
+
+/* INFO BOX */
+.info-box {
+  margin-top: 20px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 10px;
+}

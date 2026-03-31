@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure | ChemLens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+<nav class="flex justify-between items-center px-8 py-6">
+    <div class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+        <span class="text-blue-600">●</span> ChemLens
+    </div>
+    <a href="index.html" class="text-sm font-medium text-slate-500 hover:text-blue-600">← Back Home</a>
+</nav>
+
+<main class="flex-grow px-8 py-10 flex flex-col items-center">
+    <h2 id="compoundName" class="text-3xl font-bold mb-6">Finding Compound...</h2>
+    <div class="bg-white p-4 rounded-xl shadow-lg border">
+        <img id="compoundStructure" src="" alt="Structure Loading..." class="max-w-xs md:max-w-md">
+    </div>
+</main>
+
+<script>
+const compounds = [
+    {id: "Water", name: "Water", formula: "H2O", structure: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_molecule_3D.png/200px-Water_molecule_3D.png"},
+    {id: "Glucose", name: "Glucose", formula: "C6H12O6", structure: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Glucose-structure-2D-skeletal.png/200px-Glucose-structure-2D-skeletal.png"},
+    {id: "Benzene", name: "Benzene", formula: "C6H6", structure: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Benzene-2D.png/200px-Benzene-2D.png"}
+];
+
+// 1. Get the ID from the URL (e.g., structure.html?id=Benzene)
+const urlParams = new URLSearchParams(window.location.search);
+const compoundId = urlParams.get('id');
+
+// 2. Find that compound in our list
+const compound = compounds.find(c => c.id === compoundId) || compounds[0];
+
+// 3. Force the update
+document.getElementById("compoundName").innerText = `${compound.name} (${compound.formula})`;
+document.getElementById("compoundStructure").src = compound.structure;
+
+// 4. Check for link blocks
+document.getElementById("compoundStructure").onerror = function() {
+    this.src = "https://via.placeholder.com/300x300?text=Image+Blocked+By+Browser";
+};
+</script>
+</body>
+</html>

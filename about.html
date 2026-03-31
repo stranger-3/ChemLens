@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemLens | About</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.glass-effect {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col text-slate-900">
+
+<nav class="flex justify-between items-center px-8 py-6">
+  <div class="text-2xl font-bold flex items-center gap-2 text-slate-800">
+    <span class="text-blue-600">●</span> ChemLens
+  </div>
+  <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500">
+    <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+  </div>
+</nav>
+
+<main class="flex-grow flex flex-col items-center justify-start px-4 pt-12">
+  <div class="w-full max-w-3xl bg-white glass-effect p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold text-slate-800 mb-4">About ChemLens</h1>
+    <p class="text-slate-700 mb-4">
+      ChemLens is a chemical intelligence web application designed to provide quick and accurate information about chemical compounds. You can search by name, formula, or SMILES string.
+    </p>
+    <p class="text-slate-700 mb-4">
+      This project demonstrates frontend & backend logic using only HTML, CSS, and JavaScript. It includes over 50 compounds in the database, each with overview, properties, uses, and structure.
+    </p>
+    <p class="text-slate-700">
+      Designed with a modern glassmorphism style using TailwindCSS for a clean and responsive interface.
+    </p>
+  </div>
+</main>
+
+<footer class="py-8 text-center text-slate-400 text-sm border-t border-slate-100">
+  <p>© 2026 ChemLens</p>
+</footer>
+
+</body>
+</html>

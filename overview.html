@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemLens | Overview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.glass-effect {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col text-slate-900">
+
+<nav class="flex justify-between items-center px-8 py-6">
+  <div class="text-2xl font-bold flex items-center gap-2 text-slate-800">
+    <span class="text-blue-600">●</span> ChemLens
+  </div>
+  <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500">
+    <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+    <a href="about.html" class="hover:text-blue-600 transition">About</a>
+  </div>
+</nav>
+
+<main class="flex-grow flex flex-col items-center justify-start px-4 pt-12">
+  <div class="w-full max-w-3xl bg-white glass-effect p-8 rounded-xl shadow-lg">
+    <h1 id="compoundName" class="text-3xl font-bold text-slate-800 mb-4"></h1>
+    <h2 id="compoundFormula" class="text-xl font-semibold text-slate-600 mb-6"></h2>
+
+    <h3 class="text-xl font-semibold mb-3">Theory</h3>
+    <ul id="compoundTheory" class="list-disc list-inside text-slate-700 mb-6"></ul>
+
+    <div class="flex gap-4 mt-6">
+      <a id="btnProperties" href="#" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition">Properties</a>
+      <a id="btnUses" href="#" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition">Uses</a>
+      <a id="btnStructure" href="#" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition">Structure</a>
+    </div>
+  </div>
+</main>
+
+<footer class="py-8 text-center text-slate-400 text-sm border-t border-slate-100">
+  <p>© 2026 ChemLens</p>
+</footer>
+
+<script>
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+const compoundName = getQueryParam("compound");
+const compound = getCompound(compoundName);
+
+if(compound){
+    document.getElementById("compoundName").textContent = compound.name;
+    document.getElementById("compoundFormula").textContent = compound.formula;
+
+    const theoryList = document.getElementById("compoundTheory");
+    compound.theory.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = t;
+        theoryList.appendChild(li);
+    });
+
+    document.getElementById("btnProperties").href = `properties.html?compound=${compound.name}`;
+    document.getElementById("btnUses").href = `uses.html?compound=${compound.name}`;
+    document.getElementById("btnStructure").href = `structure.html?compound=${compound.name}`;
+} else {
+    alert("Compound not found!");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemLens | Chemical Intelligence</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="script.js"></script>
+<style>
+body { font-family: 'Inter', sans-serif; }
+.glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
+
+<nav class="flex justify-between items-center px-8 py-6">
+  <div class="text-2xl font-bold tracking-tighter text-slate-800 flex items-center gap-2">
+    <span class="text-blue-600">●</span> ChemLens
+  </div>
+  <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500">
+    <a href="about.html" class="hover:text-blue-600 transition">About</a>
+    <a href="#" class="hover:text-blue-600 transition">API Data</a>
+    <a href="#" class="hover:text-blue-600 transition">Contact</a>
+  </div>
+</nav>
+
+<main class="flex-grow flex flex-col items-center justify-center px-4 -mt-20">
+  <div class="text-center mb-10">
+    <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+      Find Chemical Compound Information Instantly.
+    </h1>
+    <p class="text-slate-500 text-lg">
+      Enter a compound name, formula, or SMILES string to get details.
+    </p>
+  </div>
+
+  <div class="w-full max-w-3xl relative">
+    <div class="relative flex items-center">
+      <div class="absolute left-6 text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input id="searchInput" type="text" placeholder="Search (e.g., Benzene, H2O, Glucose)..." 
+        class="w-full py-5 pl-16 pr-32 rounded-full border border-slate-200 shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg">
+      <button id="searchBtn" class="absolute right-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+        SEARCH
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer class="py-8 text-center text-slate-400 text-sm border-t border-slate-100">
+  <p>© 2026 ChemLens</p>
+</footer>
+
+<script>
+document.getElementById('searchBtn').addEventListener('click', () => {
+    const compound = document.getElementById('searchInput').value.trim();
+    if(compound) {
+        const found = getCompound(compound);
+        if(found){
+            window.location.href = `overview.html?compound=${compound}`;
+        } else {
+            alert("Compound not found!");
+        }
+    }
+});
+</script>
+
+</body>
+</html>
